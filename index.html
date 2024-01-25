@@ -71,46 +71,69 @@
         <br/> <br/>
            </div>
 
-   
            <script>
             let isSwitchOn = true;
             let currentIndex = 0;
             const slider = document.querySelector('.slider');
             const slides = document.querySelectorAll('.slide');
             const totalSlides = slides.length;
-          
+            let touchStartX = 0;
+            let touchEndX = 0;
+        
             function toggleSwitch() {
-              isSwitchOn = !isSwitchOn;
-              updateSlider();
-            }
-          
-            function updateSlider() {
-              if (isSwitchOn) {
-                currentIndex = 0;
-              } else {
-                currentIndex = 1;
-              }
-              const translationValue = -currentIndex * 100 + '%';
-              slider.style.transform = 'translateX(' + translationValue + ')';
-            }
-          
-            function autoSlide() {
-              if (isSwitchOn) {
-                currentIndex = (currentIndex + 1) % totalSlides;
+                isSwitchOn = !isSwitchOn;
                 updateSlider();
-              }
             }
-          
+        
+            function updateSlider() {
+                const translationValue = -currentIndex * 100 + '%';
+                slider.style.transform = 'translateX(' + translationValue + ')';
+            }
+        
+            function autoSlide() {
+                if (isSwitchOn) {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateSlider();
+                }
+            }
+        
+            function handleTouchStart(event) {
+                touchStartX = event.touches[0].clientX;
+            }
+        
+            function handleTouchEnd(event) {
+                touchEndX = event.changedTouches[0].clientX;
+                handleSwipe();
+            }
+        
+            function handleSwipe() {
+                const swipeThreshold = 50; // Adjust the threshold as needed
+        
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    // Swipe right to left
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                } else if (touchEndX > touchStartX + swipeThreshold) {
+                    // Swipe left to right
+                    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                }
+        
+                updateSlider();
+            }
+        
+            // Attach touch event listeners to the slider container
+            slider.addEventListener('touchstart', handleTouchStart);
+            slider.addEventListener('touchend', handleTouchEnd);
+        
             // Attach the toggleSwitch function to the checkbox change event
             const switchInput = document.querySelector('.switch input');
             switchInput.addEventListener('change', toggleSwitch);
-          
+        
             // Initialize slider based on the initial state of the switch
             updateSlider();
-          
+        
             // Automatic sliding every 3 seconds (adjust as needed)
-            setInterval(autoSlide, 1000);
-          </script>
+            setInterval(autoSlide, 3000);
+        </script>
     
 </body>
 </html>
