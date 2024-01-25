@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GYM APP</title>
     <link rel="stylesheet" href="./Style.css">
+    <!-- Option 1: Include in HTML -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -12,7 +14,15 @@
 
     <div class="conten">
         <div class="main">
-            <img class="hero" src="./Assets/Group 309.svg" alt="">
+            <div class="slider-container">
+                <div class="slider">
+                  <div class="slide"><img class="hero" src="./Assets/Group 309.svg" alt="Image 1"></div>
+                  <div class="slide"><img class="hero" src="./Assets/Group 309.svg" alt="Image 2"></div>
+                </div>
+              </div>
+              
+            
+            <!-- <img class="hero" src="./Assets/Group 309.svg" alt=""> -->
             <br/>
             <br/>
             <br/>
@@ -22,7 +32,14 @@
             <br/>
             <p>There is no instant way to a healthy life</p>
             <br/>
-            <img src="./Assets/carousel.svg" alt="">
+            <div class="center">
+                <div class="switch-container">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider-toggle round"></span>
+                    </label>
+                  </div>
+            </div>
             <br/>
             
 
@@ -30,11 +47,70 @@
         </div>
         
         </div>
+        <div class="bottom-btns">
+            <a href="./Home.html">
+               <div class="bottom-btn">
+                   <button><i class="bi bi-house-door-fill" sy></i></button>
+           <p>Home</p>
+               </div>
+            </a>
+            <a href="./Home.html">   <div  class="bottom-btn">
+               <button><i class="bi bi-person-fill"></i></button>
+               <p>Account</p>
+           
+           </div></a>
+            <a href="./Home.html">
+               <div  class="bottom-btn">
+                   <button><i class="bi bi-headphones"></i></button>
+                   <p>Support</p>
+           
+               </div>
+            </a>
+           </div>
+           
         <br/> <br/>
            </div>
 
    
-
+           <script>
+            let isSwitchOn = true;
+            let currentIndex = 0;
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+          
+            function toggleSwitch() {
+              isSwitchOn = !isSwitchOn;
+              updateSlider();
+            }
+          
+            function updateSlider() {
+              if (isSwitchOn) {
+                currentIndex = 0;
+              } else {
+                currentIndex = 1;
+              }
+              const translationValue = -currentIndex * 100 + '%';
+              slider.style.transform = 'translateX(' + translationValue + ')';
+            }
+          
+            function autoSlide() {
+              if (isSwitchOn) {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+              }
+            }
+          
+            // Attach the toggleSwitch function to the checkbox change event
+            const switchInput = document.querySelector('.switch input');
+            switchInput.addEventListener('change', toggleSwitch);
+          
+            // Initialize slider based on the initial state of the switch
+            updateSlider();
+          
+            // Automatic sliding every 3 seconds (adjust as needed)
+            setInterval(autoSlide, 1000);
+          </script>
     
 </body>
 </html>
