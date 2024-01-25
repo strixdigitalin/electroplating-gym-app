@@ -27,7 +27,7 @@
 
                 </div>
                 <div class="set">
-                    <img src="./Assets/filter-1.svg" alt="">
+                    <img src="./Assets/filter-1.svg" alt="" id="openModalBtn">
 
                 </div>
             </div>
@@ -163,6 +163,31 @@
             </div>
 
            </div>
+           <div class="modal" id="filterModal">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn">&times;</span>
     
+                <div class="filter-section">
+                    <label class="dist-text" for="range1">Distance(Km): </label>
+                    <br/>
+                    <br/>
+                    <input type="range" id="range1" min="0" max="100" value="50">
+                    <span class="dist-text"  id="range1Value">50 </span><span class="dist-text">KM</span>
+                    
+                </div>
+    
+                <div class="filter-section">
+                    <label class="dist-text" class="dist-text" for="range2">Range 2:
+                        
+                        
+                    </label>
+                    <br/>
+                    <br/>
+                    <input type="range" id="range2" min="0" max="100" value="50">
+                    <span class="dist-text" id="range2Value">50</span>
+                </div>
+            </div>
+        </div>
+    <script src="./style.js"></script>
 </body>
 </html>
