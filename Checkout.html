@@ -96,7 +96,36 @@
             </div>
             <br/>
 <div class="center">
-    <button style="color: black; font-size: 16px; font-weight: 700; ">Pay Now</button>
+    <button id="payNowButton" style="color: black; font-size: 16px; font-weight: 700;">Pay Now</button>
+</div>
+<!-- Modal container -->
+<div id="paymentModal" class="modal-container">
+    <!-- Modal content -->
+    <div class="modal-content center">
+     <img src="./Assets/Alert - Success.svg" alt="">
+     <br/>
+     <h1>Your booking is<br/> successful</h1>
+     <p>please click here to redirect to your account</p>
+     <br/>
+       <div class="center">
+
+        <button onclick="closeModal()">Proceed</button>
+       </div>
+    </div>
+</div>
+<div id="paymentModal" class="modal-container">
+    <!-- Modal content -->
+    <div class="modal-content center">
+     <img src="./Assets/Alert - Danger.png" alt="">
+     <br/>
+     <h1>Your booking is<br/> successful</h1>
+     <p>please click here to redirect to your account</p>
+     <br/>
+       <div class="center">
+
+        <button onclick="closeModal()">Proceed</button>
+       </div>
+    </div>
 </div>
 
 <div class="bottom-btns">
@@ -122,6 +151,19 @@
 
 
         </div></div>
-    
+        <script>
+            // Function to open the modal
+            function openModal() {
+                document.getElementById('paymentModal').style.display = 'flex';
+            }
+        
+            // Function to close the modal
+            function closeModal() {
+                document.getElementById('paymentModal').style.display = 'none';
+            }
+        
+            // Attach event listener to the "Pay Now" button
+            document.getElementById('payNowButton').addEventListener('click', openModal);
+        </script>
 </body>
 </html>
