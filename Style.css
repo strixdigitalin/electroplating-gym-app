@@ -1429,7 +1429,7 @@ width: 70%;
 	justify-content: center; 
 	font-size: 24px; 
 	font-weight: 600; 
-	color: #BBF246; 
+	color: #01940b; 
 } 
 
 .custom-wrapper { 
@@ -1442,7 +1442,7 @@ width: 70%;
 
 .header h2 { 
 	font-size: 30px; 
-	color: #BBF246; 
+	color: #01940b; 
 	display: flex; 
 	justify-content: center; 
 	padding: 20px; 
@@ -1493,7 +1493,7 @@ input::-webkit-inner-spin-button {
 } 
 
 .slider-container { 
-	/* height: 6px;  */
+	height: 6px; 
 	position: relative; 
 	background: #e4e4e4; 
 	border-radius: 5px; 
@@ -1505,7 +1505,7 @@ input::-webkit-inner-spin-button {
 	right: 15%; 
 	position: absolute; 
 	border-radius: 5px; 
-	background: #bbf246; 
+	background: #BBF246; 
 } 
 
 .range-input { 
@@ -1535,7 +1535,6 @@ input[type="range"]::-webkit-slider-thumb {
 
 @media screen and (max-width: 768px) { 
 
-
 	.custom-wrapper { 
 		width: 100%; 
 		left: 0; 
@@ -1557,8 +1556,6 @@ input[type="range"]::-webkit-slider-thumb {
 		margin-bottom: 10px; 
 	} 
 }
-
-
 
 .book-now-btn{
   width: 100%;
