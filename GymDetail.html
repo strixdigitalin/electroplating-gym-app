@@ -54,12 +54,12 @@
 
 
             <div id="tabs">
-              <div class="tbs tab-container">
-                <button class="tab-button" onclick="openTab('tab1')">Description</button>
-                <button class="tab-button" onclick="openTab('tab2')">Info</button>
-                <button class="tab-button" onclick="openTab('tab3')">Equipment</button>
-                <button class="tab-button" onclick="openTab('tab4')">Reviews</button>
-              </div>
+                <div class="tbs tab-container">
+                    <button class="tab-button" onclick="openTab('tab1', this)">Description</button>
+                    <button class="tab-button" onclick="openTab('tab2', this)">Info</button>
+                    <button class="tab-button" onclick="openTab('tab3', this)">Equipment</button>
+                    <button class="tab-button" onclick="openTab('tab4', this)">Reviews</button>
+                </div>
               <br/>
                 <div id="tab1" class="tab-content active">
                 
@@ -363,11 +363,28 @@
                   // Add active class to the clicked tab button
                   document.querySelector('[onclick="openTab(\'' + tabName + '\')"]').classList.add("active");
                 }
+                function openTab(tabId, button) {
+        // Get all tab buttons and tab contents
+        var tabButtons = document.querySelectorAll('.tab-button');
+        var tabContents = document.querySelectorAll('.tab-content');
 
+        // Remove 'active' class from all buttons and contents
+        tabButtons.forEach(function (btn) {
+            btn.classList.remove('active-tab-button');
+        });
+        tabContents.forEach(function (content) {
+            content.classList.remove('active');
+        });
+
+        // Add 'active' class to the selected button and content
+        button.classList.add('active-tab-button');
+        document.getElementById(tabId).classList.add('active');
+    }
 
 
       
               </script>
+              
 
 
 

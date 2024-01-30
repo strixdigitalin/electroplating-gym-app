@@ -74,6 +74,10 @@
   background-position: bottom;
   padding: 30px;
   padding-bottom: 80px;
+  
+}
+.login-cover3{
+  margin-top: -100px;
 }
 .login-cover2 {
   background-image: url(./Assets/Mask\ group1.svg);
@@ -1719,4 +1723,47 @@ text-align: center;
   font-weight: 400;
   font-family: "Poppins", sans-serif;
   text-align: center;
+}
+.conten2{
+  height: 100vh;
+  background-color: #f6f7fa;
+}
+  /* Add a class for the active state */
+
+
+/* Customize the styling for the active tab button */
+.active-tab-button {
+  font-weight: 600;
+  border-bottom: 5px solid #BBF246;
+
+}
+.tab-container::-webkit-scrollbar {
+  width: 0; /* Set the width of the scrollbar */
+  height: 0;
+}
+.slot-use-section{
+padding: 20px;
+}
+.slot-use{
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.arrows{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.slot-use-row{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
 }
